@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Website</title>
+    <title>LGBT+ Supportive Video</title>
     <style>
         body {
             margin: 0;
@@ -13,57 +13,73 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #000;
-            color: white;
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 300% 300%;
+            animation: background-shift 5s infinite;
             font-family: Arial, sans-serif;
             text-align: center;
+        }
+
+        @keyframes background-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
-            color: red;
+            color: white;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .video-container {
             position: relative;
             display: inline-block;
+            border: 10px solid;
+            border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            border-image-slice: 1;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .arrow {
             position: absolute;
             font-size: 2rem;
-            color: red;
+            color: white;
             animation: bounce 1s infinite;
         }
 
         .arrow.top {
             top: -50px;
             left: 50%;
-            transform: translateX(-50%) rotate(0deg); /* Richt omhoog */
+            transform: translateX(-50%) rotate(180deg); /* Wijst naar beneden */
         }
 
         .arrow.bottom {
             bottom: -50px;
             left: 50%;
-            transform: translateX(-50%) rotate(180deg); /* Richt omlaag */
+            transform: translateX(-50%) rotate(0deg); /* Wijst naar boven */
         }
 
         .arrow.left {
             top: 50%;
             left: -50px;
-            transform: translateY(-50%) rotate(90deg); /* Richt naar links */
+            transform: translateY(-50%) rotate(90deg); /* Wijst naar rechts */
         }
 
         .arrow.right {
             top: 50%;
             right: -50px;
-            transform: translateY(-50%) rotate(-90deg); /* Richt naar rechts */
-        }
-
-        video {
-            max-width: 600px;
-            max-height: 400px;
+            transform: translateY(-50%) rotate(-90deg); /* Wijst naar links */
         }
 
         @keyframes bounce {
@@ -74,15 +90,21 @@
                 transform: translateY(-10px);
             }
         }
+
+        video {
+            max-width: 600px;
+            max-height: 400px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <h1>The truth about Maurits en Jelger</h1>
     <div class="video-container">
-        <span class="arrow top">⬆</span>
-        <span class="arrow bottom">⬇</span>
-        <span class="arrow left">⬅</span>
-        <span class="arrow right">➡</span>
+        <span class="arrow top">⬇</span>
+        <span class="arrow bottom">⬆</span>
+        <span class="arrow left">➡</span>
+        <span class="arrow right">⬅</span>
         <video controls autoplay>
             <source src="video.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -90,3 +112,4 @@
     </div>
 </body>
 </html>
+
