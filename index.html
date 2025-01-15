@@ -4,49 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaotic LGBT+ Video</title>
+    <title>Chaotic Gay Pride</title>
     <style>
         body {
             margin: 0;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-            background-size: 400% 400%;
-            animation: background-shift 3s infinite ease-in-out, flash 0.5s infinite;
+            background: black;
+            color: white;
             font-family: Arial, sans-serif;
             text-align: center;
+            animation: color-flash 0.5s infinite;
         }
 
-        @keyframes background-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes flash {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(2); }
+        @keyframes color-flash {
+            0% { background-color: black; color: white; }
+            50% { background-color: hotpink; color: yellow; }
+            100% { background-color: black; color: white; }
         }
 
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
-            color: white;
             text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-            animation: blink 1s infinite, rotate 4s infinite linear;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            animation: rotate-text 3s linear infinite;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @keyframes rotate {
+        @keyframes rotate-text {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
@@ -54,79 +43,87 @@
         .video-container {
             position: relative;
             display: inline-block;
-            border: 10px dashed;
-            border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-            border-image-slice: 1;
             padding: 20px;
-            border-radius: 50%;
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.7);
-            animation: pulse 2s infinite ease-in-out;
+            border: 5px dotted rainbow;
+            border-radius: 20px;
+            box-shadow: 0 0 50px white;
+            animation: shake 0.5s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(-10px, 5px); }
+            50% { transform: translate(10px, -5px); }
+            75% { transform: translate(-5px, -10px); }
         }
 
         video {
-            max-width: 600px;
-            max-height: 400px;
-            border-radius: 20px;
-            box-shadow: 0 0 20px white;
+            max-width: 500px;
+            max-height: 300px;
+            border-radius: 10px;
         }
 
-        @keyframes move-stars {
-            0% { transform: translateX(-100%) translateY(-100%); }
-            100% { transform: translateX(100%) translateY(100%); }
-        }
-
-        .sparkle {
+        /* Background changing images */
+        #background-images {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background: radial-gradient(circle, white, transparent);
-            border-radius: 50%;
-            animation: move-stars 4s infinite ease-in-out;
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: change-image 1s infinite;
         }
 
-        /* Extra chaos */
+        @keyframes change-image {
+            0% { background-image: url('gay1.jpg'); }
+            25% { background-image: url('gay2.jpg'); }
+            50% { background-image: url('gay3.jpg'); }
+            75% { background-image: url('gay4.jpg'); }
+            100% { background-image: url('gay1.jpg'); }
+        }
+
         .chaos-text {
             position: absolute;
             font-size: 2rem;
             font-weight: bold;
-            color: rgba(255, 255, 255, 0.8);
-            animation: float 3s infinite ease-in-out;
+            animation: float 2s infinite ease-in-out, color-shift 1s infinite;
+            color: white;
         }
 
         @keyframes float {
-            0% { transform: translateY(0); }
+            0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
         }
 
+        @keyframes color-shift {
+            0% { color: white; }
+            50% { color: red; }
+            100% { color: yellow; }
+        }
     </style>
 </head>
 <body>
-    <h1>The Ultimate Truth about Maurits & Jelger</h1>
+    <div id="background-images"></div>
+
+    <h1>The Ultimate Chaos</h1>
     <div class="video-container">
         <video autoplay loop muted>
             <source src="video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
-    <!-- Random sparkles -->
-    <div class="sparkle" style="top: 10%; left: 20%;"></div>
-    <div class="sparkle" style="top: 50%; left: 80%;"></div>
-    <div class="sparkle" style="top: 80%; left: 30%;"></div>
-    <div class="sparkle" style="top: 40%; left: 60%;"></div>
 
     <!-- Random floating text -->
-    <div class="chaos-text" style="top: 10%; left: 10%;">🌈 LOVE</div>
-    <div class="chaos-text" style="top: 20%; right: 10%;">🎉 PRIDE</div>
-    <div class="chaos-text" style="bottom: 10%; left: 30%;">💖 SUPPORT</div>
+    <div class="chaos-text" style="top: 10%; left: 10%;">🌈 PRIDE</div>
+    <div class="chaos-text" style="top: 20%; right: 20%;">🎉 LOVE</div>
+    <div class="chaos-text" style="bottom: 10%; left: 30%;">🔥 CHAOS</div>
+    <div class="chaos-text" style="bottom: 20%; right: 40%;">💖 SUPPORT</div>
 </body>
 </html>
+
 
     </div>
 </body>
